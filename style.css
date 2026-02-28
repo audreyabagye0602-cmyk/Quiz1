@@ -1,4 +1,8 @@
-* { box-sizing: border-box; }
+/* ================= GLOBAL ================= */
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -9,10 +13,15 @@ body {
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;   /* Logo left, nav right */
   align-items: center;
   padding: 16px;
   border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .nav a {
@@ -24,19 +33,23 @@ body {
 /* ================= CONTAINER ================= */
 
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 1000px;   /* Required */
+  margin: 0 auto;      /* Center */
+  padding: 0 20px;     /* Prevent edge touching */
 }
 
-/* ================= HERO ================= */
+/* ================= HERO SECTION ================= */
 
 .hero {
-  display: flex;
+  display: flex;                     /* Two columns desktop */
   justify-content: space-between;
   align-items: center;
   padding: 40px 0;
   gap: 20px;
+}
+
+.hero-text {
+  flex: 1;
 }
 
 .hero-card {
@@ -49,7 +62,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);  /* Desktop: 4 columns */
   gap: 12px;
   padding: 20px 0;
 }
@@ -57,7 +70,7 @@ body {
 .card {
   border: 1px solid #ddd;
   padding: 18px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 /* ================= BUTTON ================= */
@@ -68,7 +81,7 @@ body {
   border: 1px solid black;
   text-decoration: none;
   color: black;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 /* ================= FOOTER ================= */
@@ -80,7 +93,7 @@ body {
   margin-top: 40px;
 }
 
-/* ================= HOVER ================= */
+/* ================= HOVER STYLES ================= */
 
 .btn:hover {
   background: black;
@@ -89,20 +102,22 @@ body {
 
 .card:hover {
   background: #f5f5f5;
+  transform: translateY(-3px);
 }
 
-/* ================= TABLET ================= */
+/* ================= TABLET (601px–900px) ================= */
 
 @media (max-width: 900px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns */
   }
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE (0px–600px) ================= */
 
 @media (max-width: 600px) {
 
+  /* Header stacks and centers */
   .header {
     flex-direction: column;
     text-align: center;
@@ -117,11 +132,13 @@ body {
     margin: 8px 0;
   }
 
+  /* Hero stacks vertically */
   .hero {
     flex-direction: column;
     text-align: center;
   }
 
+  /* Grid becomes 1 column */
   .grid {
     grid-template-columns: 1fr;
   }
